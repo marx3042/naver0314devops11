@@ -1,5 +1,7 @@
 package day0314;
 
+import java.util.Scanner;
+
 public class Test_java_ex1 {
 	
 	public static void main(String[] args) {
