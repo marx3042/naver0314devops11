@@ -3,7 +3,7 @@ package day0315;
 import java.security.DrbgParameters.NextBytes;
 import java.util.Scanner;
 
-public class Ex8_qna {
+public class Ex08_qna {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		

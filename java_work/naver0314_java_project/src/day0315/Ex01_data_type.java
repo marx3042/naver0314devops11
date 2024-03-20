@@ -1,6 +1,6 @@
 package day0315;
 
-public class Ex1_data_type {
+public class Ex01_data_type {
 	public static void main(String[] args) {
 		byte a = 127;
 		System.out.println(a);

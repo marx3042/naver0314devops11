@@ -1,6 +1,6 @@
 package day0315;
 
-public class Ex3_output {
+public class Ex03_output {
 	public static void main(String[] args) {
 		int year = 2024;
 		int month = 3, day = 15;

@@ -1,6 +1,6 @@
 package day0315;
 
-public class Ex4_main_args {
+public class Ex04_main_args {
 	public static void main(String[] args) {
 		// args 설정 : run옆 화살표 -> Run configuration -> Argument -> Program argument
 		System.out.println(args[0]);

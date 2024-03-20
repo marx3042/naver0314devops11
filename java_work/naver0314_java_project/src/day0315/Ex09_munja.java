@@ -2,7 +2,7 @@ package day0315;
 
 import java.util.Scanner;
 
-public class Ex9_munja {
+public class Ex09_munja {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		

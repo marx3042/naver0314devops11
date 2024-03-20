@@ -1,6 +1,6 @@
 package day0315;
 
-public class Ex1DataType {
+public class Ex10DataType {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
