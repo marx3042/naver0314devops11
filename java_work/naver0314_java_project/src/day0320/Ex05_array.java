@@ -20,5 +20,13 @@ public class Ex05_array {
 		for(int i : arr1) {
 			System.out.println(i);
 		}
+<<<<<<< HEAD
+=======
+		
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 6f04c524aaf04250c47e4dd08ccd7b4f52012f51
+>>>>>>> 0efa70ea86bceced6910f6c4c12c7dadb5bc809a
 	}
 }
