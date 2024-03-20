@@ -1,6 +1,6 @@
 package day0319;
 
-public class Ex6_While {
+public class Ex06_While {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

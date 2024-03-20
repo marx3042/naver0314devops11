@@ -2,7 +2,7 @@ package day0319;
 
 import java.util.Scanner;
 
-public class Ex7_While {
+public class Ex07_While {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -3,7 +3,7 @@ package day0319;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Ex9_DateCalendar {
+public class Ex09_DateCalendar {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -20,7 +20,5 @@ public class Ex05_array {
 		for(int i : arr1) {
 			System.out.println(i);
 		}
-		
-		
 	}
 }

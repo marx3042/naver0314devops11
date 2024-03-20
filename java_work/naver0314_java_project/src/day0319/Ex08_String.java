@@ -2,7 +2,7 @@ package day0319;
 
 import java.util.StringTokenizer;
 
-public class Ex8_String {
+public class Ex08_String {
 	public static void main(String[] args) {
 		System.out.println("** String 객체의 Method 공부하기 **");
 		String str1="Have a Nice Day";
