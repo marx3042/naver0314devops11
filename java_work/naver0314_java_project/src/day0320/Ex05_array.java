@@ -21,5 +21,9 @@ public class Ex05_array {
 			System.out.println(i);
 		}
 		
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 6f04c524aaf04250c47e4dd08ccd7b4f52012f51
 	}
 }
