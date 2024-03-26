@@ -2,7 +2,7 @@ package day0325;
 
 public class Ex11_Book328 {
 	//매개변수의 다형성
-	public static void aninalSound(Ex11_Animal ani) {
+	public static void aninalSound(Animal2 ani) {
 		ani.sound();
 	}
 	
