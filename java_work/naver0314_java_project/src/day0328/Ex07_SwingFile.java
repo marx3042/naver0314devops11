@@ -125,10 +125,8 @@ public class Ex07_SwingFile extends JFrame{
 						e1.printStackTrace();
 					}
 				}
-				
 			}
 		});
-		
 	}
 
 	public static void main(String[] args) {

@@ -25,7 +25,7 @@ public class Ex06_SwingCanvasRadio extends JFrame{
 	JRadioButton rbPhoto[] = new JRadioButton[4];
 	
 	int photoIndex = 1; 	//처음에 수지 사진
-	MyDraw draw = new MyDraw() ;
+	MyDraw draw = new MyDraw();
 	
 	public Ex06_SwingCanvasRadio(String title){
 		super(title);
