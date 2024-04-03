@@ -10,3 +10,13 @@ drop user c##angel;
 alter SESSION set "_ORACLE_SCRIPT"=true;
 -- angel 계정을 생성해보자(비번은 a1234)
 create user angel identified by a1234;
+--scott/tiger 계정에 비번으로 user을 생성후 기본권한을 추가
+create user scott IDENTIFIED by tiger;
+grant connect,resource to scott;
+
+--생성한 각 계정에 tablespace 지정하기
+alter user angel default tablespace users quota unlimited on users;
+alter user scott default tablespace users quota unlimited on users;
+commit; --추가된 데이터 커밋, 커밋 안할시 추가된 데이터가 취소됨
+
+
