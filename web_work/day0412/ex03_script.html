@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        for(let i = 1; i < 13; i++){
+            if(i < 10){
+                let s = `<img src="../image/jquery_image/0${i}.png" width="60">`;
+                document.write(s);
+            }
+            else{
+                let s = `<img src="../image/jquery_image/${i}.png" width="60">`;
+                document.write(s);
+            }
+        }
+    </script>
+</body>
+</html>

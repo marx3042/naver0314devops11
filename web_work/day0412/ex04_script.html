@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap" rel="stylesheet">
+<style>
+    table{
+        width: 200px;
+        border-collapse: collapse;
+        border: 3px groove gray;
+    }
+    tr{
+        height: 20px;
+        border: 1px solid lightgray;
+    }
+    td, th{
+        border: 1px solid lightgray;
+        font-size: 20px;
+        font-family: 'Commic Sans MS';
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th style="background-color: aquamarine;">5 단</th>
+        </tr>
+        <script>
+            for(let i = 1; i <= 9; i++){
+                let s = `5 X ${i} = ${i*5}`;
+                document.write("<tr><td>" + s + "</td></tr>")
+            }
+        </script>
+    </table>
+</body>
+</html>

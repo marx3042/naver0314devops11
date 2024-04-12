@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.box div{
+            
+        }
+        div.box>div.a{
+            background-image: url('../image/mycar/mycar13.png');
+            background-size: 30px 30px;
+            background-repeat: repeat; /*repeat(기본값), repeat-x, repeat-y, no-repeat*/
+        }
+        div.box>div.b{
+            background-image: url('../image/mycar/mycar11.png');
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            background-position: right bottom;
+        }
+        
+        div.box>div.c{
+            background-image: url('../image/mainImage/K-039.png');
+            background-size: 100% 100%;
+            opacity: 0.5;   /*투명도 설정*/
+        }
+        
+        div.box>div.d{
+            background-image: url('../image/food/11.jpg');
+            background-size: cover;
+        }
+        div.box>div.e{
+            background-image: url('../image/mycar/mycar15.png');
+            background-size: contain;
+        }
+        div.box>div.f{
+            background-image: url('../image/food/1.jpg') no-repeat right top;
+            background-size: 40px 40px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="a">One</div>
+        <div class="b">Two</div>
+        <div class="c">Three</div>
+        <div class="d">Four</div>
+        <div class="e">Five</div>
+        <div class="f">Six</div>
+    </div>
+</body>
+</html>

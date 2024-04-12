@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*모든 div에 적용 | style에선 이 주석 사용*/
+        /*
+        div{
+            border-style: dotted;
+            border-color: green;
+            border-width: 2px;
+        }
+        */
+        
+        /* .one : 모든 one class를 의미*/
+        .one{
+            color : hotpink;
+        }
+
+        /* div 태그 중 class가 one인 경우*/
+        div.one{
+            border : 5px groove orange;
+            margin-bottom: 10px;    /*태그 바깥쪽 아래의 여백*/
+            width: 300px;
+        }
+
+        /* 공백" ": 모든 하위의 {}태그 적용 | >:바로밑의 {}만 태그 *정확한 위치/경로를 주기 위함 */
+        div.five img{
+            width : 200px;
+        }
+        div.five>img{
+            border:px solid green;
+        }
+        div.five>div>img{
+            border: 10px inset gold;
+        }
+
+        /*id가 four 인 태그 바로 아래의 img에 적용*/
+        #four>img{
+            width: 150px;
+            border: 7px double gray;
+        }
+
+        div.one h3{
+            text-shadow: 3px 3px 3px gray;
+        }
+        
+        div.one>div{
+            border: 2px dashed palevioletred;
+            margin-top: 10px;
+            box-shadow: 5px, 5px, 5px, gray;
+        }
+
+        #three>div{
+            border: 3px dotted mediumaquamarine;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <div>One Tag</div>
+        <div>
+            <h3>Hello h3</h3>
+            <h4>Hello h4</h4>
+        </div>
+    </div>
+    <div class="one">
+        <h3>Hello h3</h3>
+    </div>
+    <div id="three">    <!--아이디는 한페이지에 1개, 클래스는 이름 같아도 ㄱㅊ-->
+        <div>
+            Three Tag
+        </div>
+        <div>
+            Three Tag
+        </div>
+        <h3 class="one">Hello h3</h3>
+        <h5>Hello h5</h5>
+    </div>
+    <div id="four">
+        <img src="../image/food/1.jpg">
+    </div>
+    <div id="five">
+        <img src="../image/food/2.jpg">
+    </div>
+    <div id="five">
+        <img src="../image/food/11.jpg">
+    </div>
+</body>
+</html>

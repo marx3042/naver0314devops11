@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>
+    <script>
+        for(let i = 1; i < 11; i++){
+            document.write(i+"&nbsp;");
+        }
+    </script>
+    </h2>
+    <h2>
+    <script>
+        for(let i = 1; i < 11; i++){
+            if(i%2==0){
+                continue;
+            }
+            document.write(i + "&nbsp;");
+        }
+    </script>
+    </h2>
+    <h2>
+    <script>
+        for(let i = 1; i < 11; i++){
+            let s = `<img src="../img/food/${i}".jpg" width=60>`;
+            document.write(s);
+        }
+    </script>
+    </h2>
+</body>
+</html>

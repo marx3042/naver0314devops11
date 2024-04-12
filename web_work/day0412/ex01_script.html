@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    document.write("<h3>여기는 자바스크립트영엽입니다</h3>");
+    //var을 함수형 변수라고 부른다
+    var a = 10;
+    console.log("a="+a);
+    if(true){
+        var a = 20;
+        console.log("a="+a);
+    }
+    console.log("a="+a);
+</script>
+<hr>
+<script>
+    let b = 10;
+    console.log("b="+b);
+    if(true){
+        let b = 20;
+        console.log("b="+b);
+    }
+    console.log("b="+b);
+</script>
+<script>
+    let s1=10;
+    let s2=3.4;
+    let s3="hello";
+    let s4="5";
+    let s5="6";
+    console.log(`s1은 ${typeof(s1)}이다`);
+    console.log(`s2은 ${(typeof(s2))}이다`);
+    console.log(`s3은 ${(typeof(s3))}이다`);
+    console.log(`s4은 ${(typeof(s4))}이다`);
+    console.log("s5은 "+typeof(s5)+"이다");
+
+    console.log(s4+s5); //더하기는 문자열로 인식해서 더하고 다른 연산자는 숫자로 인식
+    
+    
+
+</script>
+</body>
+</html>

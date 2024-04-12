@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.one>figure>img{
+            width: 200px;
+            height: 150px;
+        }
+
+        div.one>figure>figcaption{
+            text-align: center;
+        }
+
+        div.one>figure{
+            float: left;    /*왼쪽부터 우측으로 배치, 해지하려면 clear*/
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <figure>
+            <img src="../image/mycar/mycar13.png">
+            <figcaption>
+                <b>폭스바겐</b>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="../image/mycar/mycar11.png">
+            <figcaption>
+                <b>노랑폭스바겐</b>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="../image/mycar/mycar7.png">
+            <figcaption>
+                <b>BMW Mini</b>
+            </figcaption>
+        </figure>
+    </div>
+    <hr style="clear: both;">   <!--float:left 속성을 일단 해제-->
+    <div class="one">
+        <figure>
+            <img src="../image/mycar/mycar1.png">
+            <figcaption>
+                <b>a</b>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="../image/mycar/mycar2.png">
+            <figcaption>
+                <b>b</b>
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="../image/mycar/mycar3.png">
+            <figcaption>
+                <b>BMW c</b>
+            </figcaption>
+        </figure>
+    </div>
+</body>
+</html>
