@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>select event</h2>
+    <select id="sel1">
+        <option>사과</option>
+        <option>딸기</option>
+        <option>수박</option>
+        <option>망고</option>
+    </select>
+    <h2 id="msg1">result</h2>
+    <select id="sel2">
+        <option value="http://www.naver.com">네이버</option>
+        <option value="http://www.nate.com">네이트</option>
+        <option value="http://www.google.com">구글</option>
+        <option value="http://www.cafe.naver.com/zipsy">카페</option>
+    </select>
+    <h2 id="msg2">result</h2>
+    <script>
+        document.getElementById("sel2").onchange=function(){
+            //value가 있을 경우option 사이의 라벨을 읽는 방법
+            let label=this.options[this.selectedIndex].label;
+            msg2.innerHTML="<b>"+this.value+":"+labael+"</b>";
+            //페이지 이동하는 함수
+            //location.href="이동할 url"
+            //location.href=this.value;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //head에 function선언 시 window.onload 안에 선언 해야함
+        window.onload = function(){
+            let b3 = document.getElementById("btn3");   //해당 아이디가 존재하면 요소 값을 얻는다
+            b3.onclick = function(){
+                alert("button 3 click");
+            }
+        }
+
+        function test2(){
+            alert("함수 2를 호출했어요");
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="test()">함수호출 #1</button>
+    <!--body 안에서 함수를 구현 할 경우 호출하는 위치 보다는 아래에 함수 구현-->
+    <script>
+        function test(){
+            alert("함수를 호출 했어요!!");
+        }
+    </script>
+
+    <button type="button" onclick="test2()">함수호출 #2</button>
+
+    <button type="button" id = "btn3">함수호출 #3</button>
+    
+    <button type="button" id = "btn4">함수호출 #4</button>
+    
+    <!-- body 안에서 함수 선언 시 호출 뒤에 선언 하여야함-->
+    <script>
+        let b4 = document.getElementById("btn4");
+        b4.onclick = function(){
+            alert("btn 4 click");
+        }
+    </script>
+
+</body>
+</html>

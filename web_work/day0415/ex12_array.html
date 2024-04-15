@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 2px solid gray;
+            border-collapse: collapse;
+        }
+
+        tr, td, th{
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let arr1 = ["장미꽃", "안개꽃", "다알리아", "국화꽃", "프리지아"];
+        document.write(`arr1 의 배열의 갯수 : ${arr1.length}<br>`);
+    </script>
+    <table style="width: 200px;">
+        <caption><b>array arr1 print</b></caption>
+        <script>
+            for(leti = 0; i < arr1.length; i++){
+                document.write(`<tr>
+                    <th>${i+1}</th>
+                    <td>${arr1[i]}</td>
+                    </tr>`);
+            }
+        </script>
+    </table>
+
+    <script>
+        let arr2=[
+            ["pink", "장미꽃"],
+            ["green", "안개꽃"],
+            ["orange", "국화꽃"],
+            ["gray", "프리지아"],
+        ]
+    </script>
+    <table style="width: 200px;">
+        <caption><b>arr2 double array</b></caption>
+        <script>
+            for(let i = 0; i < arr2.length;i++){
+                let s = 
+                `
+                <tr>
+                    <th>${i+1}</th>
+                    <td style="background-color:${arr2[i][0]}">${arr2[i][1]}</td>
+                </tr>
+                `;
+                document.write(s);
+            }
+        </script>
+    </table>
+</body>
+</html>

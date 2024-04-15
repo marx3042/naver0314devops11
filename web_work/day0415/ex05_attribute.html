@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #msg{
+            font-size: 20px;
+            width: 300px;
+            padding: 10px;
+            height: auto;
+            border: 5px groove palevioletred;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let img1 = document.getElementById("img1");
+
+            document.getElementById("btn1").onclick = function(){
+                let src = img1.getAttribute("src");
+                let w = img1.getAttribute("width");
+                let t = img1.getAttribute("title");
+
+                msg.innerHTML=
+                `
+                이미지 src : ${src}<br>
+                이미지 title : ${t}<br> 
+                이미지 너비 : ${w}
+                `;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>setAttribute,getAttribute 공부하기</h2>
+    <img id="img1" src="../image/mycar/mycar13.png" width="200" title="나의 핑크 차">
+    <br><br>
+    <button type="button" id="btn1">속성값 얻기</button>
+    <button type="button" id="btn2">속성값 변경</button>
+
+    <br>
+    <biv id = "msg">result</biv>
+</body>
+</html>

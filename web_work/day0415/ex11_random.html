@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            let car = document.getElementById("car");
+
+            setInterval(function(){
+                let n = parseInt((Math.random()*15))+1;
+                let s = `../image/mycar/mycar${n}.png`;
+
+                car.setAttribute("src", s);
+            }, 1000)
+        }
+    </script>
+</head>
+<body>
+    <h2>5개 랜덤값</h2>
+    <script>
+        for(let i = 1; i <= 5; i++){
+            let r =Math.random();
+            document.write(r + "<br>");
+        }
+    </script>
+
+<h2>0~9 랜덤값</h2>
+<script>
+    for(let i = 1; i <= 5; i++){
+        let r =parseInt(Math.random() * 10);
+        document.write(r + "<br>");
+    }
+</script>
+
+<h2>1~15 사이의 난수를 발생해서 1초마다 자동차 바뀌도록</h2>
+<img src="../image/mycar/mycar1.png" id = "car" width="300">
+<script>
+    
+    for(let i = 1; i <= 5; i++){
+        let r =parseInt(Math.random() * 10);
+        document.write(r + "<br>");
+    }
+</script>
+</body>
+</html>

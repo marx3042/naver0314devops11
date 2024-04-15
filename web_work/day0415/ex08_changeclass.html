@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        div.buttons>button{
+            width: 100px;
+            height: 35px;
+            font-size: 1.1em;
+            font-family: 'Gaegu';
+            background-color: cadetblue;
+            color: yellow;
+            box-shadow: 5px 5px 5px gray;
+            cursor: pointer;
+        }
+
+        div.msg{
+            margin-top: 20px;
+            font-size: 30px;
+            text-align: center;
+            width: 400px;
+            height: 100px;
+            line-height: 100px;
+            font-family:'Gamja Flower' ;
+        }
+
+        div.diva{
+            border: 10px gold groove;
+            background-color: #ff69b4;
+            color: #66cdaa;
+        }
+
+        div.divb{
+            border: 10px double #2e8b57;
+            box-shadow: 5px 5px 5px orange;
+            font-family: 'East Sea Dokdo';
+            font-size: 35px;
+            background-color: #afeeee;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+ <div class="buttons">
+    <button type="button" id="btn1">diva적용</button>
+    <button type="button" id="btn2">divb용</button>
+    <button type="button" id="btn3">divab 적용</button>
+    <button type="button" id="btn4">모두 제거</button>
+ </div>   
+ <div class="msg">
+    오늘은 비오는 월요일입니다
+ </div>
+
+ <script>
+    let m=document.querySelector("div.msg");
+    document.getElementById("btn1").onclick=function(){
+        m.setAttribute("class","msg diva");
+    }
+
+    document.getElementById("btn2").onclick=function(){
+        m.setAttribute("class","msg divb");
+    }
+
+    document.getElementById("btn3").onclick=function(){
+        m.setAttribute("class","msg diva divb");
+    }
+
+    document.getElementById("btn4").onclick=function(){
+        m.setAttribute("class","msg");
+    }
+ </script>
+</body>
+</html>

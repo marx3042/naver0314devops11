@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="carlist">
+        <script>
+            for(let i = 1; i <= 15; i++){
+                let s = `<img src="../image/mycar/mycar${i}.png" width=60, height=50 hspace=3 class="car">`;
+                document.write(s);
+            }
+        </script>
+    </div>
+    <div style="margin-top: 30px;">
+    <img class="largecar" src="" width="350" 
+    style="border: 7px inset gold"
+    onerror="this.src='../image/div_img/bottle01.jpg'">
+    </div>
+    <script>
+        // let car = document.getElementsByClassName("car");
+        let car = document.querySelectorAll(".car"); // 배열타입(class가 "car"인 요소값들)
+        console.log(car.length);
+        for(let s of car){
+            s.onmouseover=function(){
+                let smallSrc=this.getAttribute("src");
+                //getElementsByClassName 은 반환값이 배열이므로 1개일 경우 0번지 값을 변경한다
+                document.getElementsByClassName("largecar")[0].setAttribute("src", smallSrc);
+            }
+        }
+    </script>
+</body>
+</html>
