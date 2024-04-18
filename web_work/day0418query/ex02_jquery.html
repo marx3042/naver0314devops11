@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        body *{
+            font-family: 'Jua';
+        }
+    </style>
+    <script>
+        $(function(){
+            $("img").css({"width": "200px"});
+            $("img:eq(0)").css({
+                "border":"5px inset tomato",
+                "box-shadow":"5px 5px 5px gray",
+                "margin":"10px"
+            });
+
+            $("figure.photo1>figcaption").css({"font-weight": "bold"});
+
+            $("figure.photo1>img").css({
+                "width":"100px",
+                "border":"2px solid lime",
+                "cursor":"pointer"
+            });
+
+            //id가 test인 영역 이동
+            $("#test").css({
+                "position":"absolute",
+                "top":"50px",
+                "left":"250px"
+            });
+
+            //인덱스 3보다 큰곳에만 적용
+            $("#test>ul>li>gt(3)").css("color", "red");
+            
+            //3보다 작은곳에만 적용
+            $("#test>ul>li:lt(3)").css("color","blue");
+
+            //짝수번지에만 적용()
+            $("#test>ul>li").even().css("background-color", "yello");
+        });
+    </script>
+</head>
+<body>
+    <img src="../image//shop/11.jpg">
+    <figure class="photo1">
+        <img src="../image/talent/13.jpg">
+        <figcaption>
+            박신혜
+        </figcaption>
+    </figure>
+    <figure class="photo1">
+        <img src="../image/talent/12.jpg">
+        <figcaption>
+            박보영
+        </figcaption>
+    </figure>
+
+    <div id="test">
+        <ul>
+            <li>Java</li>
+            <li>JSP</li>
+            <li>JavaScript</li>
+            <li>HTML5</li>
+            <li>SpringBoot</li>
+            <li>jQuery</li>
+        </ul>
+    </div>
+</body>
+</html>

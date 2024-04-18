@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.lotto{
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 100px;
+            margin-right: 3px;
+            float: left;
+            line-height: 40px;
+            text-align: center;
+            font-family: "Commic Sans MS";
+            margin: 3px;
+        }
+
+        #lottolist{
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let list = document.getElementById("lottolist");
+            //select 이벤트
+            document.getElementById("selmoney").onchange = function(){
+                let tag = "";
+
+                let money = Number(this.value);
+                
+                for(let i = 1; i <= money; i++){
+                    let arrlotto = new Array(6);
+                    console.log(arrlotto.length);
+                    //set lotto random
+                    for(let n = 0; n < arrlotto.length; n++){
+                        arrlotto[n] = parseInt(Math.random() * 45) + 1;
+                        for(let m = 0;  m < n; m++){
+                            if(arrlotto[n] == arrlotto[m]){
+                                n--;
+                                break;
+                            }
+                        }
+                        //asc
+                        for(let m=0;m<arrlotto.length-1;m++){
+                            for(let n=m+1;n<arrlotto.length;n++){
+                                if(arrlotto[m]>arrlotto[n]){
+                                    let temp=arrlotto[m];
+                                    arrlotto[m]=arrlotto[n];
+                                    arrlotto[n]=temp;
+                                }
+                            }
+                        }
+
+                        for(let a of arrlotto){
+                            let r = parseInt(Math.random() * 100) + 150;
+                            let g = parseInt(Math.random() * 100) + 150;
+                            let b = parseInt(Math.random() * 100) + 150;
+                            tag += `<div class="lotto" style="background-color:rgb(${r},${g},${b});">${a}</div>`;
+                            tag += `<br style="clear:both">`;
+                        }
+                    }
+                    lottolist.innerHTML = tag;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <select id="selmoney">
+        <option hidden disabled selected>로또 횟수 선택</option>
+        <script>
+            for(let i = 1; i <= 10; i++){
+                let s = `<option>${i}</option>`;
+                document.write(s);
+            }
+        </script>
+    </select>
+    <div id="lottolist"></div>
+</body>
+</html>
