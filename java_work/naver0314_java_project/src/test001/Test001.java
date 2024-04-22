@@ -1,17 +1,22 @@
 package test001;
 
-import java.util.Stack;
+import java.util.*;
 
 public class Test001 {
-	public int solution(int r[][], int a[]) {
-		int answer = 0;
-		
-		
-		return answer;
-	}
+	static public int[] solution(int n) {
+        int answer[] = new int[n/2+1];
+        
+        for(int i = 1; i <= n; i+=2) {
+        	answer[i/2+1] = i;
+        }
+
+        return answer;
+    }
 	
 	public static void main(String[] args) {
-		
+		for(int i : solution(10)) {
+			System.out.println(i);
+		}
 		
 	}
 }
