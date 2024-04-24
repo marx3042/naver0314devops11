@@ -13,27 +13,22 @@
             font-family: 'Jua';
         }
     </style>
-    <script>
-        $(function(){
-            $("#myfile").change(function(){
-                // console.log($(this));
-
-                if($(this)[0].files[0]){
-                    let reader = new FileReader();
-                    reader.onload = function(e){
-                        $("#showimg1").attr("src", e.target.result);
-                    }
-                    reader.readAsDataURL($(this)[0].files[0]);
-                }
-            });
-        });
-    </script>
 </head>
 <body>
-    <h4>제이쿼리로 이미지파일 미리보기 구현</h4>
-    <h5>방법 1</h5>
-    <input type="file" id="myfile">
-    <br>
-    <img src="" id="showimg1" style="width: 300px;">
+    <label>
+        <input type="checkbox" id="checkall" class="form-check-input">전체
+    </label>
+    <hr>
+    <script>
+        for(let i = 1; i <= 10; i++){
+            document.write(
+                `
+                <label>
+                    <input type="checkbox" class="form-check-input chk">제목 ${i}>
+                </label>
+                `
+            )
+        }
+    </script>
 </body>
 </html>
