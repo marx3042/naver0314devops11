@@ -113,5 +113,72 @@ public class ShopDao {
 		return dto;
 		
 	}
+	
+	//수정
+	public void updateShop(ShopDto dto)
+	{
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		String sql="update myshop set sname=?,scolor=?,sprice=?,scount=?,sphoto=? where shopidx=?";
+		conn=connect.getConnection();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			//바인딩
+			pstmt.setString(1, dto.getSname());
+			pstmt.setString(2, dto.getScolor());
+			pstmt.setInt(3, dto.getSprice());
+			pstmt.setInt(4, dto.getScount());
+			pstmt.setString(5, dto.getSphoto());
+			pstmt.setString(6, dto.getShopidx());
+			//실행
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			connect.dbClose(pstmt, conn);
+		}
+	}
+	
+	//삭제
+	public void deleteShop(int shopidx)
+	{
+		String sql="delete from myshop where shopidx=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		
+		conn=connect.getConnection();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			//바인딩
+			pstmt.setInt(1, shopidx);
+			//실행
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			connect.dbClose(pstmt, conn);
+		}
+		
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

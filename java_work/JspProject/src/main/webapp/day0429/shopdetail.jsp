@@ -58,10 +58,16 @@
 				onclick="location.href='shoplist.jsp'">목록</button>
 				
 				<button type="button" class="btn btn-outline-danger btn-sm"
-				style="width: 80px;">수정</button>
+				style="width: 80px;"
+				onclick="location.href='shopupdateform.jsp?shopidx=<%=dto.getShopidx()%>'">수정</button>
 				
 				<button type="button" class="btn btn-outline-danger btn-sm"
-				style="width: 80px;">삭제</button>
+				style="width: 80px;"
+				onclick="location.href='shopdelete.jsp?shopidx=<%=dto.getShopidx()%>'">삭제1</button>
+				
+				<button type="button" class="btn btn-outline-danger btn-sm"
+				style="width: 80px;" shopidx="<%=shopidx%>"
+				id="delshop">삭제2</button>
 				
 				<button type="button" class="btn btn-outline-danger btn-sm"
 				style="width: 80px;"
@@ -70,11 +76,15 @@
 		</tr>
 	</table>
 </div>
+<script type="text/javascript">
+//삭제2버튼 이벤트
+$("#delshop").click(function(){
+	let shopidx=$(this).attr("shopidx");
+	let a=confirm(`\${shopidx} 번 상품을 삭제할까요?`);//jsp에서는 $기능이 이미 있으므로 스크립트에서 변수를 넣을경우 \${변수명}
+	if(a){
+		location.href="shopdelete.jsp?shopidx="+shopidx;//페이지 이동
+	}
+});
+</script>
 </body>
 </html>
-
-
-
-
-
-
