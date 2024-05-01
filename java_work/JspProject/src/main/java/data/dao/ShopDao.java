@@ -25,7 +25,7 @@ public class ShopDao {
 		conn=connect.getConnection();//db 연결
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//바인딩
+			//바인딩			
 			pstmt.setString(1, dto.getSname());
 			pstmt.setInt(2, dto.getSprice());
 			pstmt.setInt(3, dto.getScount());
@@ -164,6 +164,7 @@ public class ShopDao {
 	}
 
 }
+
 
 
 
