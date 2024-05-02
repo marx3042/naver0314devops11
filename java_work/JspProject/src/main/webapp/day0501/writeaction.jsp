@@ -27,4 +27,15 @@
 	dao.insertStudent(dto);
 	//목록으로 이동
 	response.sendRedirect("list.jsp");
+<<<<<<< HEAD
 %>
+=======
+%>
+
+
+
+
+
+
+
+>>>>>>> a35980d0ea57645587a6ec02614a202517aaaf2e

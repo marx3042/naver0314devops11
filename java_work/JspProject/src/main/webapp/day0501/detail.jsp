@@ -75,6 +75,7 @@
 	id="delstu" num="<%=dto.getNum() %>" sname="<%=dto.getName()%>"
 	style="width: 100px;">학생삭제</button>
 </div>
+<<<<<<< HEAD
 <script type="text/javascript">
 	$("#delstu").click(function(){
 		let num=$(this).attr("num");
@@ -86,6 +87,8 @@
 		}
 	});
 </script>
+=======
+>>>>>>> a35980d0ea57645587a6ec02614a202517aaaf2e
 </body>
 </html>
 
@@ -104,3 +107,7 @@
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a35980d0ea57645587a6ec02614a202517aaaf2e

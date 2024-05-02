@@ -89,7 +89,11 @@ public class StudentDao {
 			pstmt=conn.prepareStatement(sql);
 			//바인딩
 			pstmt.setInt(1, num);
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> a35980d0ea57645587a6ec02614a202517aaaf2e
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				dto.setNum(rs.getInt("num"));
@@ -110,6 +114,7 @@ public class StudentDao {
 		}
 		return dto;
 	}
+<<<<<<< HEAD
 
 	//삭제
 	public void deleteStudent(int num)
@@ -167,3 +172,12 @@ public class StudentDao {
 
 	}
 }
+=======
+}
+
+
+
+
+
+
+>>>>>>> a35980d0ea57645587a6ec02614a202517aaaf2e
