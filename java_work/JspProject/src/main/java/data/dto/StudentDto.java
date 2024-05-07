@@ -60,8 +60,4 @@ public class StudentDto {
 	public void setWriteday(Timestamp writeday) {
 		this.writeday = writeday;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a35980d0ea57645587a6ec02614a202517aaaf2e
