@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        body *{
+            font-family: 'Jua';
+        }
+        
+        div.listicon{
+        	text-align: center;
+        	font-size: 2em;
+        }
+        
+        div.listicon i{
+        	cursor: pointer;
+        }
+         div.listicon i:hover{
+         	color: hotpink;
+         	text-shadow: 3px 3px 3px gray;
+         }
+         
+        div.list2{
+        	width: 400px;
+        	height: 150px;
+        	padding: 10px;
+        	border: 2px solid gray;
+        	border-radius:20px;
+        	margin-bottom: 10px;
+        }
+        
+        div.list2 img{
+        	width: 130px;
+        	height: 130px;
+        	border: 1px solid gray;
+        	border-radius:20px;
+        	margin-right: 10px;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+$(function(){
+	//처음 시작시 목록 형태(list2 가 처음에 나타나도록)
+	$("#list2").css("color","red");
+	list2();
+	
+	$("#list1").click(function(){
+		$(this).siblings().css("color","black");//형제들(다른 i태그)의 글자색은 검정
+		$(this).css("color","red");//클릭한 아이콘의 글자색은 빨강
+		list1();
+	});
+	
+	$("#list2").click(function(){
+		$(this).siblings().css("color","black");//형제들(다른 i태그)의 글자색은 검정
+		$(this).css("color","red");//클릭한 아이콘의 글자색은 빨강
+		list2();
+	});
+	
+	$("#list3").click(function(){
+		$(this).siblings().css("color","black");//형제들(다른 i태그)의 글자색은 검정
+		$(this).css("color","red");//클릭한 아이콘의 글자색은 빨강
+		list3();
+	});
+});
+
+function list1(){
+	$("div.result").empty();
+	$.ajax({
+		type:"get",
+		dataType:"xml",
+		url:"./data/sawonxmldata.jsp",
+		success:function(data){
+			
+		}
+	});
+}
+function list2(){
+	$("div.result").empty();
+	$.ajax({
+		type:"get",
+		dataType:"xml",
+		url:"./data/sawonxmldata.jsp",
+		success:function(data){
+			$(data).find("sawon").each(function(idx,ele){
+				let s="<div class='list2'>";
+				let photo=$(this).find("photo").text();
+				let name=$(this).find("name").text();
+				let buseo=$(this).find("buseo").text();
+				let age=$(this).find("age").text();
+				let gender=$(this).find("gender").text();
+				let ipsaday=$(this).find("birthday").text();
+				let addr=$(this).find("addr").text();
+				
+				if(photo=='no')
+					s+="<img src='../image/noimage2.png' align='left'>";
+					else
+						s+=`<img src="${photo}" align="left">`;
+				
+				s+=
+					`
+					사원명 : ${name}<br>
+					부서명 : ${buseo}<br>
+					나 이 : ${age}세<br>
+					주 소 : ${addr}<br>
+					입사일 : ${ipsaday}
+					`;	
+				s+="</div>";
+				$("div.result").append(s);
+			});
+		}
+	});
+}
+function list3(){
+	$("div.result").empty();
+	$.ajax({
+		type:"get",
+		dataType:"xml",
+		url:"./data/sawonxmldata.jsp",
+		success:function(data){
+			
+		}
+	});
+}
+</script>
+<body>
+<div class="listicon">
+	<i class="bi bi-grid" id="list1"></i>
+	<i class="bi bi-card-list" id="list2"></i>
+	<i class="bi bi-table" id="list3"></i>	
+</div>
+<img src="../image/K-055.png" width="300">
+<div class="result" style="margin: 20px;">111</div>
+</body>
+</html>
