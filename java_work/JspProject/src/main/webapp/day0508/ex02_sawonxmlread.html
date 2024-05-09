@@ -42,6 +42,28 @@
         	border-radius:20px;
         	margin-right: 10px;
         }
+        
+        div.list1{
+        	float:left;
+        	width:200px;
+        	height:260px;
+        	text-align:center;
+        	margin:10px;
+        	padding:10px;
+        	background-color:#ffddff;
+        	border:3px groove gold;
+        	border-radius:20px;
+        	box-shadow:5px 5px 5px gray;        	
+        }
+        
+        div.list1 img{
+        	width:160px;
+        	height:180px;
+        	border-radius:20px;
+        	margin-bottom: 10px;
+        }
+        
+        
     </style>
 </head>
 <script type="text/javascript">
@@ -76,7 +98,27 @@ function list1(){
 		dataType:"xml",
 		url:"./data/sawonxmldata.jsp",
 		success:function(data){
-			
+			$(data).find("sawon").each(function(idx,ele){
+				let s="<div class='list1'>";
+				let photo=$(this).find("photo").text();
+				let name=$(this).find("name").text();
+				let buseo=$(this).find("buseo").text();
+				let age=$(this).find("age").text();
+				let gender=$(this).find("gender").text();
+				let ipsaday=$(this).find("birthday").text();
+				let addr=$(this).find("addr").text();
+				
+				if(photo=='no')
+					s+="<img src='../image/noimage2.png'>";
+					else
+						s+=`<img src="${photo}">`;
+				
+				s+=`
+				<b style="color:red;">${buseo}</b>&nbsp;${name}
+				`
+				s+="</div>";
+				$("div.result").append(s);
+			});
 		}
 	});
 }
@@ -122,7 +164,44 @@ function list3(){
 		type:"get",
 		dataType:"xml",
 		url:"./data/sawonxmldata.jsp",
-		success:function(data){
+		success:function(data){			
+			
+			let s=
+				`
+				<table class="table table-bordered" style="width:530px;">
+				   <tr class="table-danger">
+						   <th width=70>사원명</th>
+						   <th width=90>부서</th>
+						   <th width=70>나이</th>
+						   <th width=50>성별</th>
+						   <th width=130>주소</th>
+						   <th>입사일</th>			   		
+				   </tr>
+				`;
+				
+			$(data).find("sawon").each(function(idx,ele){
+				let photo=$(this).find("photo").text();
+				let name=$(this).find("name").text();
+				let buseo=$(this).find("buseo").text();
+				let age=$(this).find("age").text();
+				let gender=$(this).find("gender").text();
+				let ipsaday=$(this).find("birthday").text();
+				let addr=$(this).find("addr").text();
+				
+				s+=
+					`
+					<tr>
+						<td align="center">${name}</td>
+						<td align="center">${buseo}</td>
+						<td align="center">${age}세</td>
+						<td align="center">${gender}</td>
+						<td>${addr}</td>
+						<td align="center">${ipsaday}</td>
+				    </tr>
+					`;
+			});
+			s+="</table>";
+			$("div.result").append(s);
 			
 		}
 	});
