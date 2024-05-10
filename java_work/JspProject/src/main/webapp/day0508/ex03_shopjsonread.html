@@ -59,6 +59,20 @@
           	margin-right: 10px;
           	border-radius: 20px;
           }
+          
+          div.mytooltip{
+            position: absolute;
+            line-height: 1.5;
+            color: black;
+            width: 200px;
+            background-color: #f90;
+            border: 2px solid white;
+            padding: 15px;
+            font-size: 14px;
+            border-radius: 30px;
+            opacity: 0.8;
+            display: none;
+        }          
     </style>
     <script type="text/javascript">
     $(function(){
@@ -101,6 +115,30 @@
     			}
     		});
     	});
+    	
+    	//list3 의 tr 에 마우스를 올리면 툴팁에 이미지가 나타나도록 만들어보자
+    	$(document).on("mousemove","tr.view",function(e){
+    		console.log("mousemove");
+    		 //e.pageX:커서의 x좌표,e.pageY:커서의 y좌표,
+            //툴팁의 위치를 마우스포인터 위치로 변경
+            $("div.mytooltip").css({
+                'left':e.pageX+'px',
+                'top':e.pageY+"px"
+            });
+    	});
+		$(document).on("mouseover","tr.view",function(e){
+		    //tr 태그에 있는 photo 얻기
+		    let photo=$(this).attr("photo");
+		    
+		    $("div.mytooltip").fadeIn('fast');
+		    
+		    $("div.mytooltip").html(
+		    `<img src="${photo}" width="170" style="border-radius:20px;">`		
+		    );
+		});
+		$(document).on("mouseout","tr.view",function(e){
+			 $("div.mytooltip").fadeOut('fast');
+		});
     	
     });//end function
     
@@ -180,7 +218,7 @@
     			$.each(data,function(idx,ele){
     				s+=
     					`
-    					<tr>
+    					<tr class="view" photo="${ele.sphoto}">
 	    					<td>${idx+1}</td>
 	    					<td>${ele.sname}</td>
 	    					<td>${ele.sprice}원</td>
@@ -202,6 +240,9 @@
     </script>
 </head>
 <body>
+<div class="mytooltip">
+</div>
+    
 <div class="listicon">
 	<i class="bi bi-grid" id="list1"></i>
 	<i class="bi bi-card-list" id="list2"></i>

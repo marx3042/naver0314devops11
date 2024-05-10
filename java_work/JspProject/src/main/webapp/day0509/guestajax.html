@@ -110,7 +110,30 @@
     				data:{"num":num},
     				url:"./data/updatedata.jsp",
     				success:function(data){
-    					alert(data.nickname);
+    					//alert(data.nickname);
+    					$("#unum").val(data.num);
+    					$("#unickname").val(data.nickname);
+    					$("#ucontent").val(data.content);
+    				}
+    			});
+    		});
+    		
+    		//모달의 수정버튼
+    		$("#btnupdate").click(function(){
+    			let num=$("#unum").val();
+    			let nickname=$("#unickname").val();
+    			let content=$("#ucontent").val();
+    			
+    			let data="num="+num+"&nickname="+nickname+"&content="+content;
+    			
+    			$.ajax({
+    				type:"post",
+    				dataType:"html",
+    				url:"./data/update.jsp",
+    				data:data,
+    				success:function(){
+    					//수정 성공후
+    					list();
     				}
     			});
     		});
@@ -171,11 +194,17 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        닉네임,내용 넣고 수정버튼 넣기
+        <input type="hidden" id="unum">
+        <input type="text" id="unickname" class="form-control"
+        style="width: 150px;">
+        <br>
+        <textarea id="ucontent" class="form-control"
+        style="width: 100%;height:100px;"></textarea>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
+      	<button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btnupdate">수정하기</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
       </div>
 
