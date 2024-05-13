@@ -48,6 +48,20 @@
         	border: 1px solid black;
         	border-radius: 100px;
         }
+        
+        #detailphoto{
+        	border:10px groove gray;
+        }
+        
+        .detailinfo{
+        	padding-top: 50px;
+        }
+        
+        .boxcolor{
+        	width: 40px;
+        	height: 40px;
+        	border: 1px solid black;
+        }
     </style>
     <script type="text/javascript">
     $(function(){
@@ -101,6 +115,53 @@
     				$("div.shopform").slideUp('fast');    				
     			}
     		});
+    	});
+    	
+    	//삭제
+    	$(document).on("click",".btndelete",function(){
+    		let shopidx=$(this).attr("shopidx");
+    		let a=confirm("해당 상품을 삭제하시겠습니까?");
+    		if(a){
+    			$.ajax({
+    				type:"get",
+    				dataType:"html",
+    				data:{"shopidx":shopidx},
+    				url:"./data/deleteshop.jsp",
+    				success:function(){
+    					//삭제후 목록 다시 출력
+    					list();
+    				}
+    			});
+    		}
+    	});
+    	
+    	//상세보기
+    	$(document).on("click",".btndetail",function(){
+    		let shopidx=$(this).attr("shopidx");
+    		
+  			$.ajax({
+  				type:"get",
+  				dataType:"json",
+  				data:{"shopidx":shopidx},
+  				url:"./data/selectdata.jsp",
+  				success:function(data){
+  					$("#detailphoto").attr("src",data.sphoto);
+  					let s=
+  						`
+  						입고일<br>${data.writeday}<br>
+  						상품명 : ${data.sname}<br>
+  						가 격 : ${data.sprice}원<br>
+  						수 량 : ${data.scount}개<br>
+  						색 상<br>
+  						${data.scolor}
+  						<div class="boxcolor" style="background-color:${data.scolor}"></div>
+  						
+  						`;
+  					
+  					$("div.detailinfo").html(s);
+  				}
+  			});
+    		
     	});
     	
     });//end function
@@ -160,7 +221,8 @@
     						<td align="right">${ele.sprice}원</td>
     						<td>
     							<button type="button" class="btn btn-success btn-sm btndetail"
-    							  shopidx="${ele.shopidx}">Detail</button>
+    							  shopidx="${ele.shopidx}"
+    								  data-bs-toggle="modal" data-bs-target="#myModalDetail">Detail</button>
     						</td>
     						<td>
 								<button type="button" class="btn btn-danger btn-sm btndelete"
@@ -180,6 +242,43 @@
     </script>
 </head>
 <body>
+<!-- 상세보기 The Modal -->
+<div class="modal" id="myModalDetail">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">상품 상세보기</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+         <table class="table" style="width:90%">
+         	<tr>
+         		<td width="300">
+         			<img src="" id="detailphoto"
+         			  style="width:90%;">
+         		</td>
+         		<td>
+         			<div class="detailinfo"></div>
+         		</td>
+         	
+         	</tr>
+         </table>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 <div style="margin: 10px;">
 	<h5 class="formtitle alert alert-success">
 		<i class="bi bi-pencil-fill"></i>
@@ -259,7 +358,3 @@
 </div>
 </body>
 </html>
-
-
-
-
