@@ -43,7 +43,7 @@
 		<th>입사일</th>
 	</tr>
 	<c:forEach var="dto" items="${list}" varStatus="i">
-	<c:if test="${dto.buseo==param.search or param.search==''}">
+	<c:if test="${dto.buseo==param.search or empty param.search or param.search==''}">
 		<tr>
 			<td align="center">${i.count}</td>
 			<td align="center">
