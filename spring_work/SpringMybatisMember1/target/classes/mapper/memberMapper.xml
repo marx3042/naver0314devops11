@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="member.dao.MemberDao">
+	<select id="memberTotalCount" resultType="int">
+		select count(*) from memberdb
+	</select>
+	<select id="selectIdCheck" parameterType="String" resultType="int">
+		select count(*) from memberdb where myid=#{searchid}
+	</select>
+</mapper>

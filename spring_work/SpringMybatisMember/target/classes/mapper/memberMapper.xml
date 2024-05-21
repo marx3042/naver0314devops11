@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="member.dao.MemberDao">
+	<select id="memberTotalCount" resultType="int">
+		select count(*) from memberdb
+	</select>
+	<select id="selectIdCheck" parameterType="String" resultType="int">
+		select count(*) from memberdb where myid=#{searchid}
+	</select>
+	<insert id="insertMember" parameterType="MemberDto">
+		insert into memberdb (name,myid,passwd,addr,hp,email,photo,birthday,gaipday)
+		values (#{name},#{myid},#{passwd},#{addr},#{hp},#{email},#{photo},#{birthday},now())
+	</insert>
+	<select id="selectAllMembers" resultType="MemberDto">
+		select * from memberdb order by num
+	</select>
+</mapper>
