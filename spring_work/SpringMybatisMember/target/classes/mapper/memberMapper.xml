@@ -14,4 +14,20 @@
 	<select id="selectAllMembers" resultType="MemberDto">
 		select * from memberdb order by num
 	</select>
+	<select id="selectByNumData" parameterType="int" resultType="MemberDto">
+		select * from memberdb where num=#{num}
+	</select>
+	<update id="updatePhoto" parameterType="Map">
+		update memberdb set photo=#{photo} where num=#{num}
+	</update>
+	<update id="updateMember" parameterType="MemberDto">
+		update memberdb set name=#{name},hp=#{hp},email=#{email},
+		addr=#{addr},birthday=#{birthday} where num=#{num}
+	</update>
+	<select id="equalPassCheck" parameterType="Map" resultType="int">
+		select count(*) from memberdb where num=#{num} and passwd=#{passwd}
+	</select>
+	<delete id="deleteMember" parameterType="int">
+		delete from memberdb where num=#{num}
+	</delete>
 </mapper>

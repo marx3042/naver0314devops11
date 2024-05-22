@@ -53,11 +53,9 @@
     		 success:function(data){
     			 if(data.count==0){
     				 alert("가입 가능한 아이디입니다");
-
     				 jungbok=true;
     			 }else{
     				 alert("이미 가입되어있는 아이디입니다");
-
     				 jungbok=false;
     				 $("#myid").val("");
     			 }
@@ -128,8 +126,9 @@ onsubmit="return check()">
 		<tr>
 			<th width="100"  class="table-info">핸드폰</th>
 			<td width="200" colspan="2"> 
-				<input type="number" name="hp" class="form-control"
-				required="required" placeholder="숫자만 입력하세요" >
+				<input type="tel" name="hp" class="form-control"
+				required="required" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+				placeholder="xxx-xxxx-xxxx">
 			</td>			
 		</tr>
 		<tr>

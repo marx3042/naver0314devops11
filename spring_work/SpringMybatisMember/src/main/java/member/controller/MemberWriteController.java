@@ -33,7 +33,7 @@ public class MemberWriteController {
 		return "member/writeform";
 	}
 	
-	//¹İÈ¯Å¸ÀÔÀÌ json ÇüÅÂ·Î {"count":0}
+	//ë°˜í™˜íƒ€ì…ì´ json í˜•íƒœë¡œ {"count":0}
 	@ResponseBody
 	@GetMapping("/idcheck")
 	public Map<String, Integer> searchId(
@@ -41,7 +41,7 @@ public class MemberWriteController {
 			)
 	{
 		Map<String, Integer> map=new HashMap<>();
-		//db ¿¡ ÇØ´ç ¾ÆÀÌµğ°¡ ÀÖ´ÂÁö Ã¼Å©(0:¾øÀ½,1:ÀÖÀ½)
+		//db ì— í•´ë‹¹ ì•„ì´ë””ê°€ ìˆëŠ”ì§€ ì²´í¬(0:ì—†ìŒ,1:ìˆìŒ)
 		int count=memberService.getSearchId(searchid);
 		map.put("count", count);
 		
@@ -55,15 +55,15 @@ public class MemberWriteController {
 			HttpServletRequest request
 			)
 	{
-		//¾÷·Îµå °æ·Î ±¸ÇÏ±â
+		//ì—…ë¡œë“œ ê²½ë¡œ êµ¬í•˜ê¸°
 		String uploadPath=request.getSession().getServletContext().getRealPath("/resources");
 		System.out.println(uploadPath);
 		
-		//¾÷·ÎµåµÈ ÆÄÀÏ¸íÀ» dto ÀÇ photo ¿¡ ÀúÀå
+		//ì—…ë¡œë“œëœ íŒŒì¼ëª…ì„ dto ì˜ photo ì— ì €ì¥
 		String photo=myfile.getOriginalFilename();
 		dto.setPhoto(photo);
 		
-		//¾÷·Îµå
+		//ì—…ë¡œë“œ
 		try {
 			myfile.transferTo(new File(uploadPath+"/"+photo));
 		} catch (IllegalStateException | IOException e) {
@@ -71,10 +71,10 @@ public class MemberWriteController {
 			e.printStackTrace();
 		}
 		
-		//db ¿¡ insert
+		//db ì— insert
 		memberService.insertMember(dto);
 		
-		//¸ñ·ÏÆäÀÌÁö·Î ÀÌµ¿
+		//ëª©ë¡í˜ì´ì§€ë¡œ ì´ë™
 		return "redirect:./list";
 	}
 }

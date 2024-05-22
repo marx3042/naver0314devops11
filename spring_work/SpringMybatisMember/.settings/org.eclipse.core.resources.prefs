@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
+encoding//src/main/java/member/controller/MemberDetailController.java=UTF-8
 encoding//src/main/java/member/controller/MemberListController.java=UTF-8
+encoding//src/main/java/member/controller/MemberWriteController.java=UTF-8
