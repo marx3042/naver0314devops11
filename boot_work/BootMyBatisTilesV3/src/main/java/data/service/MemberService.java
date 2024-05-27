@@ -39,6 +39,11 @@ public class MemberService {
 		return memInter.getData(num);
 	}
 	
+	public MemberDto getDataById(String myid)
+	{
+		return memInter.getDataById(myid);
+	}
+	
 	public void updatePhoto(int num,String photo)
 	{
 		Map<String, Object> map=new HashMap<>();
@@ -47,14 +52,27 @@ public class MemberService {
 		memInter.updatePhoto(map);		
 	}
 	
-	public int checkForPasswd(int num, String passwd) {
-		Map<String, Object> map = new HashMap<>();
-		map.put("passwd", passwd);
+	public void updateMember(MemberDto dto)
+	{
+		memInter.updateMember(dto);
+	}
+		
+	public boolean isEqualPassCheck(int num,String passwd)
+	{
+		Map<String, Object> map=new HashMap<String, Object>();
 		map.put("num", num);
-		return memInter.checkForPasswd(map);
+		map.put("passwd", passwd);
+		int n=memInter.isEqualPassCheck(map);
+		return n==1?true:false;
 	}
 	
-	public void deleteMember(int num) {
+	public void deleteMember(int num)
+	{
 		memInter.deleteMember(num);
+	}
+	
+	public boolean isLoginCheck(String myid,String pass)
+	{
+		return memInter.isLoginCheck(myid, pass)==1?true:false;
 	}
 }
