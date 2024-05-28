@@ -55,7 +55,7 @@
 				<c:set var="no" value="${no-1}"/>
 			</td>
 			<td><!-- 제목 -->
-				<a href="./detail?num=${dto.num}">
+				<a href="./detail?num=${dto.num}&currentPage=${currentPage}">
 				  <!-- relevel 한개당 두칸띄우기 -->
 				  <c:forEach begin="1" end="${dto.relevel}">
 				  	&nbsp;&nbsp;
@@ -66,6 +66,11 @@
 				  </c:if>
 				  <!-- 제목 -->
 				  ${dto.subject}
+				  <!-- 사진이 있을경우 아이콘 표시 -->
+				  <c:if test="${dto.uploadphoto!='no'}">
+				  		<i class="bi bi-image"
+				  		style="color: gray;"></i>
+				  </c:if>
 				</a>
 			</td>
 			<td>${dto.writer}</td>

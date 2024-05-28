@@ -29,4 +29,14 @@
 	<select id="getData" parameterType="int" resultType="ReBoardDto">
 		select * from reboard where num=#{num}
 	</select>
+	<update id="updateBoard" parameterType="ReBoardDto">
+		update reboard set subject=#{subject},content=#{content}
+		<if test="uploadphoto!=null">
+			,uploadphoto=#{uploadphoto}
+		</if>
+		where num=#{num}
+	</update>
+	<delete id="deleteBoard" parameterType="int">
+		delete from reboard where num=#{num}
+	</delete>
 </mapper>
