@@ -12,11 +12,17 @@ spring:
       
 #mysql setting
   datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/bit701?serverTimezone=Asia/Seoul
+#    username: root
+#    password: 1234
+
+#gangsa ncloud mysql db
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/bit701?serverTimezone=Asia/Seoul
-    username: root
-    password: 1234
-    
+    url: jdbc:mysql://db-n8650-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul
+    username: study
+    password: bitcamp!@#123    
+   
 #mybatis setting
 mybatis:
   type-aliases-package: data.dto

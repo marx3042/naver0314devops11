@@ -20,7 +20,108 @@
        td.buttons button{
         	width: 80px;
        }
+       
+       pre.adata{
+       	margin-left: 10px;
+       	color: gray;
+       }
+       
+       span.aday{
+       	 margin-left: 100px;
+       	 color: gray;
+       	 font-size: 0.9em;
+       }
    </style>
+   <script type="text/javascript">
+   $(function(){
+	   //처음 로딩시 댓글 목록 출력
+	   answer_list();
+	  
+	   //댓글 추가 버튼
+	  $("#btnansweradd").click(function(){
+		  let num=${dto.num};
+		  let content=$("#acontent").val();
+		  if(content==''){
+			  alert("댓글을 입력후 등록해주세요");
+			  return;
+		  }
+		  
+		  $.ajax({
+			  type:'post',
+			  dataType:'text',
+			  url:"./ainsert",
+			  data:{"num":num,"content":content},
+			  success:function(){
+				  //댓글 목록 다시 출력
+				  answer_list();
+				  //초기화
+				  $("#acontent").val("");
+			  }
+		  });
+	  });
+	   
+	   //댓글 삭제 이벤트
+	   $(document).on("click",".adel",function(){
+		  let aidx=$(this).attr("aidx");
+		  let a=confirm("해당 댓글을 삭제할까요?");
+		  if(a){
+			  $.ajax({
+				  type:"get",
+				  dataType:"text",
+				  data:{"aidx":aidx},
+				  url:"./adelete",
+				  success:function(){
+					  //댓글 삭제후 목록 다시 출력
+					  answer_list();
+				  }
+			  })
+		  }
+	   });
+   });
+   
+   function answer_list(){
+	   let num=${dto.num};
+	   //로그인중인지 로그인중일경우 로그인 아이디 얻기
+	   let loginok='${sessionScope.loginok}';
+	   let loginid='${sessionScope.loginid}';
+	   console.log(loginok+","+loginid);
+	   
+	   $.ajax({
+		   type:"get",
+		   dataType:"json",
+		   data:{"num":num},
+		   url:"./alist",
+		   success:function(data){
+			   //댓글 갯수 출력
+			   $(".answercount").text(data.length);
+			   //목록 출력
+			   let s="";
+			   $.each(data,function(idx,ele){
+				  s+=					  
+					  `
+					  \${ele.writer}(\${ele.myid})
+					  <span class="aday">\${ele.writeday}</span>
+					  `;
+					//로그인중이면서 댓글 아이디와 로그인 아이디가 같을경우 삭제 아이콘 추가
+				   if(loginok=='yes' && loginid==ele.myid){
+					   s+=
+						   `
+						   <i class="bi bi-trash adel" aidx="\${ele.aidx}"
+						   style="cursor:pointer;"></i>
+						   `
+				   }	  
+					  
+				   s+=`
+					  <br>
+					  <pre class="adata">\${ele.content}</pre>
+					  <br>
+					  `; 
+			   });
+			   $(".answerlist").html(s);
+		   }
+	   })
+   }
+   </script>
 </head>
 <body>
 <table class="table" style="width: 500px;">
@@ -42,7 +143,7 @@
 			  <span style="float: right;color: gray;">
 			  	<i class="bi bi-chat-dots"></i>
 			  	&nbsp;
-			  	댓글 0
+			  	댓글 <span class="answercount">0</span>
 			  </span>
 		</td>
 	</tr>
@@ -57,6 +158,23 @@
 			<pre style="font-size: 17px;">${dto.content}</pre>
 		</td>
 	</tr>
+	<tr>
+		<td>
+			 <!-- 댓글 출력할 영역 -->
+			 <div class="answerlist"></div>
+		</td>
+	</tr>
+	<c:if test="${sessionScope.loginok!=null}">
+		<tr>
+			<td>			   
+				<b>댓글</b><br>
+				<textarea style="width: 80%;height: 60px;" id="acontent"></textarea>
+				<button type="button" class="btn btn-outline-success"
+				style="height: 65px;position: relative;top:-25px;"
+				id="btnansweradd">등록</button>
+			</td>
+		</tr>
+	</c:if>
 	<tr>
 		<td class="buttons">
 		    <!-- 새글 -->

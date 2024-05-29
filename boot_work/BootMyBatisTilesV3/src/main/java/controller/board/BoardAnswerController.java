@@ -1,5 +1,7 @@
 package controller.board;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import data.dto.BoardAnswerDto;
 import data.service.BoardAnswerService;
 import data.service.MemberService;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @RestController
 @RequestMapping("/board")
@@ -40,4 +44,16 @@ public class BoardAnswerController {
 		answerService.insertAnswer(dto);
 	}
 
+	@GetMapping("/alist")
+	public List<BoardAnswerDto> alist(@RequestParam int num) 
+	{
+		return answerService.getAnswerData(num);
+	}
+	
+	@GetMapping("/adelete")
+	public void deleteAnswer(@RequestParam int aidx)
+	{
+		answerService.deleteAnswer(aidx);
+	}
+	
 }
