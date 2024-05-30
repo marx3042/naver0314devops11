@@ -19,7 +19,6 @@
    </style>
 </head>
 <body>
-
 <div class="input-group" style="width: 600px;margin-bottom: 20px;">
 	<h5>총 ${totalCount}개의 글이 있습니다</h5>
 	
@@ -71,6 +70,12 @@
 				  		<i class="bi bi-image"
 				  		style="color: gray;"></i>
 				  </c:if>
+				  
+				  <!-- 댓글이 있는경우만 갯수 출력 -->
+				  <c:if test="${dto.recount>0}">
+				  	<span style="color: red;">(${dto.recount})</span>
+				  </c:if>
+				  
 				</a>
 			</td>
 			<td>${dto.writer}</td>

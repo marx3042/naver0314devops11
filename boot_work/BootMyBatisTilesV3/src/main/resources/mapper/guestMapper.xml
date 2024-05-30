@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="data.mapper.GuestMapperInter">
+	<insert id="insertGuest" parameterType="GuestDto">
+		insert into guestdb (writer,myid,gcontent,writeday)
+		values (#{writer},#{myid},#{gcontent},now())
+		
+		<selectKey keyProperty="guestidx" resultType="int" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	<insert id="insertGuestPhoto" parameterType="GuestPhotoDto">
+		insert into guestphoto (guestidx,photoname)
+		values (#{guestidx},#{photoname})
+	</insert>
+	<select id="getAllGuest" resultType="GuestDto">
+		select * from guestdb order by guestidx desc
+	</select>
+	<select id="getGuestPhoto" parameterType="int" resultType="String">
+		select photoname from guestphoto where guestidx=#{guestidx}
+	</select>
+</mapper>
